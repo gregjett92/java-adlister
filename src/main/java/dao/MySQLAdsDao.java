@@ -2,7 +2,6 @@ package dao;
 
 import com.mysql.cj.jdbc.Driver;
 import models.Ad;
-import models.Config;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -10,7 +9,7 @@ import java.util.List;
 
 public class MySQLAdsDao implements Ads {
 
-    private Connection conn;
+    private Connection conn = null;
 
     public MySQLAdsDao(Config config) {
         try {
