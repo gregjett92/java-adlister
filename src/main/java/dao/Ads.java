@@ -1,3 +1,5 @@
+package dao;
+
 import models.Ad;
 
 import java.util.List;
