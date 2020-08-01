@@ -17,6 +17,8 @@ CREATE TABLE ads (
     title VARCHAR(240) NOT NULL,
     description TEXT NOT NULL,
     PRIMARY KEY (id),
+    created_at  DATETIME        NOT NULL,
+    is_deleted  BOOLEAN         NOT NULL DEFAULT 0,
     FOREIGN KEY (user_id) REFERENCES users(id)
         ON DELETE CASCADE
 );
