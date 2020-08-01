@@ -13,6 +13,7 @@ import java.util.List;
 public class MySQLAdsDao implements Ads {
     private Connection connection = null;
 
+//    constructor that will return a MySQLAdsDao
     public MySQLAdsDao(Config config) {
         try {
             DriverManager.registerDriver(new Driver());

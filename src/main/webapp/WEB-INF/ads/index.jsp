@@ -10,14 +10,27 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
 <div class="container">
-    <h1>Here Are all the ads!</h1>
+    <%--making sure the user is authenticated--%>
+    <c:choose>
+        <%--making sure user is logged in--%>
+         <c:when test="${sessionScope['user'] != null}">
+             <h1>Here Are all the ads!</h1>
+            <c:forEach var="ad" items="${ads}">
+                <div class="col-md-6">
+                    <h2>${ad.title}</h2>
+                    <p>${ad.description}</p>
+                </div>
+            </c:forEach>
+        </c:when>
+        <c:otherwise>
+            <h1>Sorry Please Log In.</h1>
+        </c:otherwise>
+    </c:choose>
 
-    <c:forEach var="ad" items="${ads}">
-        <div class="col-md-6">
-            <h2>${ad.title}</h2>
-            <p>${ad.description}</p>
-        </div>
-    </c:forEach>
+
+
+
+
 </div>
 
 </body>

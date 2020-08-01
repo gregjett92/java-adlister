@@ -5,8 +5,11 @@
             <a class="navbar-brand" href="/ads">Adlister</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="/login">Login</a></li>
-            <li><a href="/logout">Logout</a></li>
+          <%-- added register button --%>
+            <li><a href="${pageContext.request.contextPath}/login">Login</a></li>
+            <li><a href="${pageContext.request.contextPath}/logout">Logout</a></li>
+            <li><a href="${pageContext.request.contextPath}/register">Register</a> </li>
+            <li><a href="${pageContext.request.contextPath}/ads/create">Create Ad</a></li>
         </ul>
     </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

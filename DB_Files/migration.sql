@@ -1,12 +1,19 @@
+CREATE DATABASE IF NOT EXISTS adlister_db;
 USE adlister_db;
 
+
+
+# SHOW TABLES;
+
+# DROP TABLES SO THERE ARE NO DUPLICATES TABLES
 DROP TABLE IF EXISTS ads;
 DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    username VARCHAR(240) NOT NULL,
-    email VARCHAR(240) NOT NULL,
+    # added UNIQUE keyword to username and email
+    username VARCHAR(240) UNIQUE NOT NULL,
+    email VARCHAR(240) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
     PRIMARY KEY (id)
 );
@@ -17,8 +24,9 @@ CREATE TABLE ads (
     title VARCHAR(240) NOT NULL,
     description TEXT NOT NULL,
     PRIMARY KEY (id),
-    created_at  DATETIME        NOT NULL,
-    is_deleted  BOOLEAN         NOT NULL DEFAULT 0,
     FOREIGN KEY (user_id) REFERENCES users(id)
-        ON DELETE CASCADE
 );
+
+DESCRIBE ads;
+
+
