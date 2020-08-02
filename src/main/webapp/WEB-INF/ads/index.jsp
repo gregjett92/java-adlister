@@ -19,6 +19,16 @@
                 <div class="col-md-6">
                     <h2>${ad.title}</h2>
                     <p>${ad.description}</p>
+                    <c:if test="${user_id eq ad.userId}">
+                        <form action="${pageContext.request.contextPath}/ads/edit" method="get">
+                            <input type="hidden" name="ad_id" value="${ad.id}">
+                            <input class="btn btn-sm" type="submit" value="edit">
+                        </form>
+                        <form action="${pageContext.request.contextPath}/ads/delete" method="post">
+                            <input type="hidden" name="ad_id" value="${ad.id}">
+                            <input class="btn btn-sm btn-danger" type="submit" value="delete">
+                        </form>
+                    </c:if>
                 </div>
             </c:forEach>
         </c:when>
@@ -26,12 +36,6 @@
             <h1>Sorry Please Log In.</h1>
         </c:otherwise>
     </c:choose>
-
-
-
-
-
 </div>
-
 </body>
 </html>
