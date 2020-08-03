@@ -72,10 +72,11 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error creating a new ad.", e);
         }
     }
-
+//    edits ad by ad id
     @Override
     public void edit(Ad ad, String title, String desc){
         try{
+//            takes data from servlet and creates a query with the data and updates the ad
             String updateQuery = "UPDATE ads SET title = ?, description = ? WHERE id = ?";
             PreparedStatement stmt = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
             stmt.setString(1,title);
@@ -86,7 +87,7 @@ public class MySQLAdsDao implements Ads {
             throwables.printStackTrace();
         }
     }
-
+//    deletes ad by ad id
     @Override
     public void delete(Ad ad) {
         try {

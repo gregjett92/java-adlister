@@ -13,9 +13,12 @@ import java.io.IOException;
 @WebServlet(name = "controllers.AdsIndexServlet", urlPatterns = "/ads")
 public class AdsIndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        grabs current logged in user
         User user = (User) request.getSession().getAttribute("user");
-
+//        provides front with access to all ad info
+//        grabbing all the ads
         request.setAttribute("ads", DaoFactory.getAdsDao().all());
+//        checks if users logged in
         if(user != null) {
             request.setAttribute("user_id", user.getId());
         }

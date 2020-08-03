@@ -7,6 +7,7 @@ public class DaoFactory {
 
     public static Ads getAdsDao() {
         if (adsDao == null) {
+//            storing mysqladsdao with data base in it
             adsDao = new MySQLAdsDao(config);
         }
         return adsDao;

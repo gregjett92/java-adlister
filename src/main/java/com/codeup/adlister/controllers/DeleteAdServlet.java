@@ -14,11 +14,13 @@ import java.io.IOException;
 @WebServlet(name = "DeleteAdServlet", urlPatterns = "/ads/delete")
 public class DeleteAdServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+//        grabs logged in user
         User user = (User) req.getSession().getAttribute("user");
-
+//      grabs ad id from hidden input
         Long adId = Long.parseLong(req.getParameter("ad_id"));
+//        returns unique ad
         Ad ad = DaoFactory.getAdsDao().findUniqueAd(adId);
-
+//        comparing user id to ad/user id to see if permission is valid
         if(user.getId() == ad.getUserId()) {
             DaoFactory.getAdsDao().delete(ad);
         } else {
